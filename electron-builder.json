@@ -1,0 +1,74 @@
+{
+  "appId": "com.personaldownloader.desktop",
+  "productName": "PIDM",
+  "electronVersion": "45.0.0",
+  "electronDist": "node_modules/electron/dist",
+  "asar": true,
+  "npmRebuild": false,
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "src/**/*",
+    "web/**/*",
+    "package.json",
+    "assets/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "bin/yt-dlp.exe",
+      "to": "bin/yt-dlp.exe"
+    },
+    {
+      "from": "bin/ffmpeg-9.0.2-essentials_build",
+      "to": "bin/ffmpeg-9.0.2-essentials_build",
+      "filter": [
+        "LICENSE",
+        "README.txt",
+        "bin/ffmpeg.exe",
+        "bin/ffprobe.exe"
+      ]
+    },
+    {
+      "from": "extension",
+      "to": "browser-extension",
+      "filter": [
+        "**/*"
+      ]
+    },
+    {
+      "from": "distribution",
+      "to": "distribution",
+      "filter": [
+        "**/*"
+      ]
+    }
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "signAndEditExecutable": true,
+    "icon": "assets/pidm.ico",
+    "signExecutable": false
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowElevation": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "deleteAppDataOnUninstall": false,
+    "differentialPackage": false,
+    "artifactName": "PIDM-Setup-${version}-${arch}.${ext}",
+    "installerIcon": "assets/pidm.ico",
+    "uninstallerIcon": "assets/pidm.ico",
+    "installerHeaderIcon": "assets/pidm.ico"
+  }
+}

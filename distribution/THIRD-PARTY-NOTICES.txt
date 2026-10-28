@@ -1,0 +1,37 @@
+PIDM bundles independent third-party executables.
+
+PIDM's own source code is licensed under the MIT License. See
+PIDM-LICENSE.txt in new installer resources, or LICENSE in the source tree.
+The MIT license does not replace the licenses of the bundled components.
+
+Electron 45.0.0
+https://github.com/electron/electron/releases/tag/v45.0.0
+Electron and Chromium license notices are included in the installation root.
+
+yt-dlp 2026.10.21
+The project's source is Unlicense. The bundled PyInstaller Windows executable
+includes GPLv3+ code; its combined executable is licensed under GPLv3+.
+https://github.com/yt-dlp/yt-dlp/releases/tag/2026.10.21
+Source: https://github.com/yt-dlp/yt-dlp/tree/2026.10.21
+License and bundled dependency details:
+https://github.com/yt-dlp/yt-dlp/blob/2026.10.21/LICENSE
+https://github.com/yt-dlp/yt-dlp/blob/2026.10.21/README.md#license
+https://github.com/yt-dlp/yt-dlp/blob/2026.10.21/THIRD_PARTY_LICENSES.txt
+
+FFmpeg 9.0.2, Gyan essentials Windows build
+https://www.gyan.dev/ffmpeg/builds/
+https://github.com/GyanD/codexffmpeg/releases/tag/9.0.2
+FFmpeg source revision: https://github.com/FFmpeg/FFmpeg/commit/946fcce07b
+The build is distributed under GPLv3. Its full LICENSE and build README are
+included under resources/bin/ffmpeg-9.0.2-essentials_build/.
+Bundled codec and library details are listed in the build README and at:
+https://www.gyan.dev/ffmpeg/builds/#libraries
+
+Public redistribution of GPL-covered binaries requires the corresponding
+source and other materials specified by their licenses. Upstream links in
+this notice do not constitute a prepared corresponding-source distribution.
+See docs/DISTRIBUTION.md in the PIDM source repository before publishing
+a bundled binary release.
+
+No Internet Download Manager binaries, proprietary source or branding are
+included. Website names remain the property of their respective owners.

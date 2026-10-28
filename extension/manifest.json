@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "PIDM Browser Connect",
+  "version": "0.6.1",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzDFAjldqTHqRd2ilqf+i6Cl29dKpiAGT8DpPVe6+3RPmy1gQ5wRH5hoX7a6FglBpHLiHh9fmuLmUe9tW7p/kIYcmrXmgz4/iDc3izvOrM0GQ2IGmQvVEMELcrcoPXPXfiem/ON1zg+0ManNfXLAKPaBYtRc6M7S1OHqeodMySqtHgatHwuudKMjzdJDaBfm8T1MuZE2zgN3o2gCEVb21HdRCC6OUHqbEAjqCrShny5zUm3bKOqDAOQimDMDn1pg5hQbhDTIMTEVtwDJtH4AesM0zBOIrqqPHv0hmplutSVxNpf9TrGCf1I10ywWmOfHpi00F68XfFPSeQ7gC8KOxNwIDAQAB",
+  "description": "Send files and select video qualities with PIDM Download Manager.",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:17341/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "Download with PIDM",
+    "default_icon": {
+      "16": "icons/pidm-16.png",
+      "32": "icons/pidm-32.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/pidm-16.png",
+    "32": "icons/pidm-32.png",
+    "48": "icons/pidm-48.png",
+    "128": "icons/pidm-128.png"
+  }
+}

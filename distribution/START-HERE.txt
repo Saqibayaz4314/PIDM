@@ -1,0 +1,27 @@
+PIDM - Windows 10/11, 64-bit
+
+1. Run PIDM-Setup-0.3.0-x64.exe and finish the installer.
+2. Open PIDM from the desktop or Start menu.
+3. Paste a direct file URL, or paste a video URL and click Video qualities.
+4. Select an available quality and add the download.
+
+Node.js, Python, yt-dlp and FFmpeg do not need separate installation.
+Internet is needed to download files/videos, not to install the bundled tools.
+
+Optional Chrome/Edge integration (one time on each computer):
+- In PIDM click Open extension folder.
+- Open chrome://extensions or edge://extensions in your browser.
+- Enable Developer mode, click Load unpacked and select the opened folder.
+- Keep PIDM open. The extension connects automatically when downloading.
+- Updating from 0.5.0: remove the old extension and Load unpacked once again.
+- On a video page click the extension toolbar icon to choose a quality.
+
+Downloads are saved in your Windows Downloads\Personal Downloader folder.
+Remove cancels an unfinished job and removes its entry; completed files stay.
+Uninstalling the app does not remove downloaded files.
+
+The installer is not digitally signed. It has not been verified on every PC.
+Website support varies; 403/429 errors, login requirements and unsupported
+streams can still prevent downloads. DRM-protected content is unsupported.
+
+Read THIRD-PARTY-NOTICES.txt for bundled component and license information.

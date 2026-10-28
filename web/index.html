@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PIDM — Download Manager</title><link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <script src="/theme.js"></script><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script>
+</head>
+<body data-token="__TOKEN__">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="PIDM home"><img src="/logo.svg" alt="" width="38" height="38"><span><strong>PIDM</strong><small>Download manager</small></span></a>
+      <div class="nav-label">LIBRARY</div>
+      <nav aria-label="Download filters">
+        <button class="nav-item selected" data-filter="all" aria-current="page"><svg class="icon"><use href="/icons.svg#grid"/></svg><span>All downloads</span><b data-count="all">0</b></button>
+        <button class="nav-item" data-filter="active"><svg class="icon"><use href="/icons.svg#download"/></svg><span>In progress</span><b data-count="active">0</b></button>
+        <button class="nav-item" data-filter="completed"><svg class="icon"><use href="/icons.svg#check"/></svg><span>Completed</span><b data-count="completed">0</b></button>
+        <button class="nav-item" data-filter="paused"><svg class="icon"><use href="/icons.svg#pause"/></svg><span>Paused</span><b data-count="paused">0</b></button>
+        <button class="nav-item" data-filter="failed"><svg class="icon"><use href="/icons.svg#alert"/></svg><span>Failed</span><b data-count="failed">0</b></button>
+      </nav>
+      <div class="sidebar-bottom"><button class="nav-item" data-open-integration><svg class="icon"><use href="/icons.svg#browser"/></svg><span>Browser integration</span></button><div class="local-note"><svg class="icon"><use href="/icons.svg#shield"/></svg><span>Saved on your device<small>No cloud account needed</small></span></div></div>
+    </aside>
+    <main class="workspace">
+      <header class="page-header"><div><h1 id="page-title">All downloads</h1><p>Manage your files and video downloads.</p></div><div class="header-actions"><button class="icon-button" data-open-integration title="Browser setup" aria-label="Browser setup"><svg class="icon"><use href="/icons.svg#browser"/></svg></button><span class="connection" id="connection"><i></i>Connected</span><div class="theme-switch" role="group" aria-label="Appearance"><button data-theme-choice="light" title="Light theme" aria-label="Light theme"><svg class="icon"><use href="/icons.svg#sun"/></svg></button><button data-theme-choice="dark" title="Dark theme" aria-label="Dark theme"><svg class="icon"><use href="/icons.svg#moon"/></svg></button></div></div></header>
+      <section class="composer" aria-labelledby="new-heading">
+        <div class="section-heading"><h2 id="new-heading">New download</h2><span>Files &amp; videos</span></div>
+        <form id="add-form">
+          <label class="sr-only" for="url">Download URL</label>
+          <div class="add-row"><div class="url-input"><svg class="icon"><use href="/icons.svg#link"/></svg><input id="url" type="url" placeholder="Paste a file or video link…" required autocomplete="off"></div><button id="inspect-video" class="button secondary" type="button"><svg class="icon"><use href="/icons.svg#film"/></svg><span>Video qualities</span></button><button class="button primary" id="add-download" type="submit"><svg class="icon"><use href="/icons.svg#plus"/></svg><span>Add download</span></button></div>
+          <div class="download-options"><div><label for="mode">Type</label><select id="mode"><option value="auto">Automatic</option><option value="direct">Direct file</option><option value="video">Video page</option></select></div><div><label for="segments">Connections</label><select id="segments" title="Maximum connections: files up to 8; supported video streams up to 4."><option>1</option><option>2</option><option selected>4</option><option>8</option></select></div><span class="options-hint">Choose video quality before downloading.</span></div>
+          <div id="video-options" class="quality-panel" hidden><svg class="icon"><use href="/icons.svg#film"/></svg><div><strong id="video-title"></strong><p id="quality-note"></p></div><label class="sr-only" for="quality">Video quality</label><select id="quality"><option value="best">Best available</option></select></div>
+        </form>
+        <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+      </section>
+      <section class="library" aria-label="Downloads">
+        <div class="library-toolbar"><div class="library-heading"><h2>Downloads</h2><span id="count">0 files</span></div><div class="search-box"><svg class="icon"><use href="/icons.svg#search"/></svg><input id="search" type="search" placeholder="Search downloads" aria-label="Search downloads"></div></div>
+        <div class="list-heading" aria-hidden="true"><span>FILE NAME</span><span>STATUS &amp; SIZE</span><span>ACTIONS</span></div>
+        <div id="jobs"></div>
+        <div id="empty-state" class="empty-state" hidden><div class="empty-illustration"><svg class="empty-tray" viewBox="0 0 100 88" fill="none"><rect x="29" y="8" width="43" height="49" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/><path d="M40 22h20M40 30h15" stroke="var(--line)" stroke-width="3" stroke-linecap="round"/><path d="m19 45-9 25a8 8 0 0 0 8 10h65a8 8 0 0 0 8-10l-9-25H64l-4 12H41l-4-12Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/><path d="M50 36v24m-8-8 8 8 8-8" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 id="empty-title">Ready when you are</h3><p id="empty-copy">Paste a link above to start your first download.</p></div>
+        <footer class="library-footer"><span id="library-summary">Your download library</span><span>PIDM <span id="app-version">__VERSION__</span></span></footer>
+      </section>
+    </main>
+  </div>
+  <dialog id="integration-dialog"><div class="dialog-heading"><div><span class="dialog-kicker">PIDM CONNECT</span><h2>Bring downloads into your browser</h2></div><button class="icon-button" id="close-integration" title="Close" aria-label="Close browser integration"><svg class="icon"><use href="/icons.svg#close"/></svg></button></div><p class="dialog-intro">Add the PIDM extension to Chrome or Edge. Then send files and choose video qualities without leaving your browser.</p><ol class="setup-steps"><li><span>1</span><div><strong>Load the browser extension</strong><p>Open the extension folder. In your browser's Extensions page, enable Developer mode and choose Load unpacked.</p><button class="button secondary" id="open-extension" type="button"><svg class="icon"><use href="/icons.svg#folder"/></svg>Open extension folder</button></div></li><li><span>2</span><div><strong>Open PIDM</strong><p>Keep this desktop app open. The extension connects automatically; no setup code is needed.</p></div></li><li><span>3</span><div><strong>You're ready to download</strong><p>Refresh your video page, then use the PIDM toolbar icon or the button over the player.</p></div></li></ol><p id="integration-status" role="status" class="dialog-status"></p></dialog>
+</body></html>

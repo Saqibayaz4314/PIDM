@@ -1,0 +1,199 @@
+{
+  "fixture": "32 MiB localhost transfer, 1000 completed history entries, 4 connections",
+  "runtime": {
+    "node": "v24.22.1",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "methodology": "Three fresh processes per engine/scenario; order alternates baseline/candidate. Server and downloader share a process. OS cache is uncontrolled; first and repeat runs are separate, not proven cold/warm disk runs. CPU and memory cover that single process. Internet performance, agent token costs and antivirus activity are not measured.",
+  "sourceDigests": {
+    "baseline": {
+      "downloads.js": "5a41b98df22d404e6289569801a14dd802a1fd53dec880a9cbee87b0d4a268a2",
+      "transfer.js": null,
+      "history.js": null,
+      "media.js": "d6c70e2f38a8acd187e5eab5def6c8387ad60c9101f13938c27e686a92bf786b",
+      "resources.js": "584c452e7d91d19847f5db03e9ab94ff22ced0ba1d8474b5e24c55486589e577"
+    },
+    "candidate": {
+      "downloads.js": "52d5b75164bf4f60e489e4497927e1594c6be912177c00bd945d5bf0449501db",
+      "transfer.js": "9f429015f9159266cbbaf3739597e75179129cbb31fd72095da96dec1e3447dd",
+      "history.js": "507df95c601021e121058729f3dd39ddfcc25d2b4063f54e37f21ef50eaf1ae1",
+      "media.js": "167d04774915eda07d00f88ae6ac3ba467bcc43edc2028ac1fc587d0e849989f",
+      "resources.js": "584c452e7d91d19847f5db03e9ab94ff22ced0ba1d8474b5e24c55486589e577"
+    }
+  },
+  "scenarios": {
+    "throughput": {
+      "runs": {
+        "baseline": [
+          {
+            "run": 1,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 1002.7,
+            "cpuMs": 562,
+            "peakRssMiB": 119.6,
+            "requests": 5,
+            "sha256Verified": true
+          },
+          {
+            "run": 2,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 808.7,
+            "cpuMs": 500,
+            "peakRssMiB": 121.7,
+            "requests": 5,
+            "sha256Verified": true
+          },
+          {
+            "run": 3,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 850.6,
+            "cpuMs": 515,
+            "peakRssMiB": 121.3,
+            "requests": 5,
+            "sha256Verified": true
+          }
+        ],
+        "candidate": [
+          {
+            "run": 1,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 682.4,
+            "cpuMs": 484,
+            "peakRssMiB": 125.6,
+            "requests": 9,
+            "sha256Verified": true
+          },
+          {
+            "run": 2,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 581.3,
+            "cpuMs": 454,
+            "peakRssMiB": 124.4,
+            "requests": 9,
+            "sha256Verified": true
+          },
+          {
+            "run": 3,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 665.7,
+            "cpuMs": 328,
+            "peakRssMiB": 126.3,
+            "requests": 9,
+            "sha256Verified": true
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 850.6,
+          "cpuMs": 515,
+          "peakRssMiB": 121.3
+        },
+        "candidate": {
+          "elapsedMs": 665.7,
+          "cpuMs": 454,
+          "peakRssMiB": 125.6
+        }
+      }
+    },
+    "straggler": {
+      "runs": {
+        "baseline": [
+          {
+            "run": 1,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 1659.8,
+            "cpuMs": 516,
+            "peakRssMiB": 118.3,
+            "requests": 5,
+            "sha256Verified": true
+          },
+          {
+            "run": 2,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 1762.2,
+            "cpuMs": 609,
+            "peakRssMiB": 117.5,
+            "requests": 5,
+            "sha256Verified": true
+          },
+          {
+            "run": 3,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 1771.9,
+            "cpuMs": 657,
+            "peakRssMiB": 115.4,
+            "requests": 5,
+            "sha256Verified": true
+          }
+        ],
+        "candidate": [
+          {
+            "run": 1,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 876.9,
+            "cpuMs": 439,
+            "peakRssMiB": 125.9,
+            "requests": 9,
+            "sha256Verified": true
+          },
+          {
+            "run": 2,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 903.3,
+            "cpuMs": 579,
+            "peakRssMiB": 126.7,
+            "requests": 9,
+            "sha256Verified": true
+          },
+          {
+            "run": 3,
+            "bytes": 33554432,
+            "historyEntries": 1000,
+            "connections": 4,
+            "elapsedMs": 918.1,
+            "cpuMs": 625,
+            "peakRssMiB": 126.6,
+            "requests": 9,
+            "sha256Verified": true
+          }
+        ]
+      },
+      "medians": {
+        "baseline": {
+          "elapsedMs": 1762.2,
+          "cpuMs": 609,
+          "peakRssMiB": 117.5
+        },
+        "candidate": {
+          "elapsedMs": 903.3,
+          "cpuMs": 579,
+          "peakRssMiB": 126.6
+        }
+      }
+    }
+  }
+}

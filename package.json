@@ -1,0 +1,27 @@
+{
+  "name": "personal-downloader",
+  "version": "0.3.0",
+  "description": "PIDM — Personal Internet Download Manager",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "src/desktop.cjs",
+  "scripts": {
+    "postinstall": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-electron.ps1",
+    "start": "electron .",
+    "start:browser": "node src/server.js",
+    "setup:media": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-media.ps1",
+    "setup:ffmpeg": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-ffmpeg.ps1",
+    "test": "node --test",
+    "pack:dir": "node scripts/prepare-release.cjs && electron-builder --config electron-builder.json --win --x64 --dir --publish never",
+    "dist": "node scripts/prepare-release.cjs && electron-builder --config electron-builder.json --win nsis --x64 --publish never",
+    "test:packaged": "node scripts/smoke-packaged.cjs",
+    "assets": "electron scripts/generate-assets.cjs",
+    "test:ui": "electron scripts/verify-ui.cjs",
+    "bench:downloads": "node scripts/benchmark-downloads.mjs"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0",
+    "electron-builder": "26.18.0"
+  }
+}
